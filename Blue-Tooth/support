@@ -1,0 +1,12 @@
+# Intel Dual Band Wireless-AC 8265 :
+# support :
+{ BT = bluetooth = {BT Token rename 
+supporting 
+       
+       bluetooth ; {name_change(
+                           bluetooth = BT) 
+}
+{ support : 
+"Bluetooth_feature" supppots = BT ('4.2') = true 
+{ intel : 
+user 'walllet' 'SHA-connect'  
