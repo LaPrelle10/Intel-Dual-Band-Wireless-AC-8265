@@ -1,0 +1,28 @@
+# Intel Dual Band Wireless AC 8265
+
+$ iw dev
+$ iw phy phy0 info # should show all information about the device, including the "monitor" capability
+$ sudo iw phy phy0 interface add mon0 type monitor
+$ ip link
+$ sudo iw dev wlan0 del # (may have to replace wlan0 by wlp2s0)
+$ sudo ip link set mon0 up
+$ iw dev mon0 info
+$ sudo iw dev mon0 set freq 2437 # set it to the right channel
+---------------------------------------------------------------------------------------------------------------------------
+# Fireware
+
+$ ls -lh /lib/firmware/iwlwifi-*
+-rw-r--r--  1 root root  2,3M  8. Apr 17:31 iwlwifi-8265-21.ucode
+-rw-r--r--  1 root root  1,8M  8. Apr 17:31 iwlwifi-8265-22.ucode
+-rw-r--r--  1 root root  2,2M  8. Apr 17:31 iwlwifi-8265-27.ucode
+-rw-r--r--  1 root root  2,3M  8. Apr 17:31 iwlwifi-8265-31.ucode
+-rw-r--r--  1 root root  2,4M  8. Apr 17:31 iwlwifi-8265-34.ucode
+---------------------------------------------------------------------------------------------------------------------------
+# Linux
+ dmesg
+[    1.885451] Intel(R) Wireless WiFi driver for Linux
+[    1.885452] Copyright(c) 2003- 2015 Intel Corporation
+[    1.885536] iwlwifi 0000:02:00.0: enabling device (0000 -> 0002)
+[    1.886425] iwlwifi 0000:02:00.0: Direct firmware load for iwlwifi-8265-36.ucode failed with error -2
+[    1.886433] iwlwifi 0000:02:00.0: Direct firmware load for iwlwifi-8265-35.ucode failed with error -2
+[    1.889093] iwlwifi 0000:02:00.0: loaded firmware version 34.0.1 op_mode iwlmvm
